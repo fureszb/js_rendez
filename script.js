@@ -1,5 +1,6 @@
 import { SZAMLISTA } from "./adat.js";
 import { SZOVEGLISTA } from "./adat.js";
+import { OBJEKTUMLISTA } from "./adat.js";
 console.log(SZAMLISTA);
 
 $(function () {
@@ -19,7 +20,25 @@ $(function () {
     console.log(SZAMLISTA)
 
     keveres2(SZAMLISTA)
+    
+    console.log("Név szerint rendezve: ");
+    console.log(nevSzerintRendez(OBJEKTUMLISTA));
+    //mivel soronoként fut le a program és az utlsó függvény szám szerint rendez így a név szerinti lista is megváltozik
+    console.log("Kor szerint rendezve: ");
+    console.log(korSzerintRendez(OBJEKTUMLISTA));
+
 });
+
+function nevSzerintRendez(lista){
+  let nev = lista.sort((a, b) => a.nev.localeCompare(b.nev));
+  return nev;
+  
+}
+function korSzerintRendez(lista){
+   
+  let kor = lista.sort((a, b) => a.kor - b.kor);
+  return kor;
+}
 function keveres1(lista) {
   
   let megKevertIndex = [];
